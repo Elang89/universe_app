@@ -1,0 +1,51 @@
+CREATE KEYSPACE universe_data 
+WITH REPLICATION = {'class':'SimpleStrategy', 'replication_factor' : 1};
+
+CREATE TABLE galaxy 
+(
+	id_galaxy UUID,
+	shape TEXT,
+	galaxy_name TEXT, 
+	planet TEXT,
+	nebula TEXT,
+	star TEXT,
+	PRIMARY KEY (id_galaxy,shape)
+);
+
+CREATE TABLE star
+(
+	id_star UUID, 
+	star_name TEXT,
+	star_type TEXT,
+	planet_name TEXT,
+	PRIMARY KEY(id_star, star_name, star_type)
+);
+
+CREATE TABLE planet
+(
+	id_planet UUID,
+	planet_name TEXT,
+	planet_type TEXT,
+	planet_size TEXT, 
+	sattellite TEXT,
+	PRIMARY KEY (id_planet,planet_type)
+);
+
+CREATE TABLE  natural_satellite
+(
+	id_satellite UUID,
+	satellite_type TEXT,
+	satellite_name TEXT,
+	orbital_period TEXT,
+	planetary_orbit TEXT,
+	PRIMARY KEY (id_satellite, satellite_type)
+);
+
+CREATE TABLE nebula
+(
+	id_nebula UUID,
+	nebula_type TEXT,
+	nebula_name TEXT,
+	spectrum TEXT,
+	PRIMARY KEY (id_nebula,nebula_type)
+);
