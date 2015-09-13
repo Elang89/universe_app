@@ -1,0 +1,75 @@
+CREATE KEYSPACE universe_data 
+WITH REPLICATION = {'class':'SimpleStrategy', 'replication_factor' : 1};
+
+CREATE TABLE galactic_event
+(
+	id_galactic_event UUID,
+	galaxy_name TEXT, 
+	event_description TEXT,
+	Earth_time TIMESTAMP,
+	PRIMARY KEY (id_galactic_event )
+);
+
+CREATE TABLE stellar_event
+(
+	id_stellar_event UUID, 
+	star_name TEXT,
+	planetary_system TEXT,
+	event_description TEXT,
+	Earth_time TIMESTAMP,
+	PRIMARY KEY(id_stellar_event)
+);
+
+CREATE TABLE planetary_event
+(
+	id_planetary_event UUID,
+	planet_name TEXT,
+	event_name TEXT,
+	event_description TEXT,
+	Earth_time TIMESTAMP,
+	PRIMARY KEY (id_planetary_event)
+);
+
+CREATE TABLE  natural_satellite_event
+(
+	id_satellite_event UUID,
+	event_type TEXT,
+	satellite_name TEXT,
+	orbiting_planet TEXT,
+	planetary_orbit TEXT,
+	event_description TEXT,
+	Earth_time TIMESTAMP,
+	PRIMARY KEY (id_satellite_event )
+);
+
+CREATE TABLE nebula_event
+(
+	id_nebula_event UUID,
+	nebula_type TEXT,
+	nebula_name TEXT,
+	event_class TEXT,
+	event_description TEXT,
+	Earth_time TIMESTAMP,
+	PRIMARY KEY (id_nebula_event )
+);
+
+CREATE TABLE asteroid_impact 
+(
+	id_asteroid_event UUID,
+	asteroid_size TEXT,
+	event_description TEXT,
+	planetary_system TEXT,
+	PRIMARY KEY (id_asteroid_event)
+);
+
+	
+CREATE TABLE image_table 
+(
+	image_group_id UUID,
+	name TEXT,
+	Earth_time TIMESTAMP,
+	contents BLOB,
+	PRIMARY KEY (image_group_id )
+
+
+);
